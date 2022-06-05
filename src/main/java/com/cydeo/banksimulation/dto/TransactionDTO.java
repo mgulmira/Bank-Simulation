@@ -1,19 +1,22 @@
-package com.cydeo.banksimulation.model;
+package com.cydeo.banksimulation.dto;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.UUID;
-@Data
-@Builder
-public class Transaction {
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+
+public class TransactionDTO {
     @NotNull
-    private UUID sender;
+    private AccountDTO sender;
     @NotNull
-    private UUID receiver;
+    private AccountDTO receiver;
     @NotNull
     @Positive
     private BigDecimal amount;

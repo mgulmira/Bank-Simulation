@@ -1,7 +1,7 @@
 package com.cydeo.banksimulation.service;
 
-import com.cydeo.banksimulation.model.Account;
-import com.cydeo.banksimulation.model.Transaction;
+import com.cydeo.banksimulation.dto.AccountDTO;
+import com.cydeo.banksimulation.dto.TransactionDTO;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -9,14 +9,14 @@ import java.util.List;
 import java.util.UUID;
 
 public interface TransactionService {
-    Transaction makeTransfer(BigDecimal amount, Date creationDate,
-                             Account sender, Account receiver,
-                             String message);
+    TransactionDTO makeTransfer(BigDecimal amount, Date creationDate,
+                                AccountDTO sender, AccountDTO receiver,
+                                String message);
 
-    List<Transaction> findAll();
-    List<Transaction> findTransactionById(UUID id);
-    List<Transaction> retrieveLastTransaction();
+    List<TransactionDTO> findAll();
+
+    List<TransactionDTO> retrieveLastTransaction();
 
 
-
+    List findTransactionListByAccountId(Long id);
 }
